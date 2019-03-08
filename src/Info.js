@@ -7,11 +7,10 @@ class Info extends Component {
 
     this.state = {
       timeOfDay: "",
-      hour: 0,
-      minute: 0,
       fact: "",
       quote: "",
-      author: ""
+      author: "",
+      memeMessage: ""
     };
   }
 
@@ -19,7 +18,9 @@ class Info extends Component {
     const today = new Date();
     const hour = this.addZero(today.getHours());
     const minute = this.addZero(today.getMinutes());
-    document.getElementById("time").innerHTML= hour + ":" + minute;
+    document.getElementById("time").innerHTML= hour + " : " + minute;
+    this.setTimeOfDay(hour);
+    // setInterval(setTime, 1000);
   }
 
   addZero(num) {
@@ -29,14 +30,12 @@ class Info extends Component {
     return num;
   }
 
-  setTimeOfDay() {
-    const day = new Date();
-    const hour = day.getHours();
+  setTimeOfDay(h) {
     let tOD;
-    if (hour > 6 && hour < 12) {
+    if (h > 6 && h < 12) {
       tOD = "morning";
     }
-    else if (hour > 12 && hour < 20) {
+    else if (h > 12 && h < 20) {
       tOD = "afternoon";
     }
     else {
@@ -45,6 +44,14 @@ class Info extends Component {
     this.setState({
       timeOfDay: tOD
     })
+  }
+
+  showMeme = () => {
+    const message = "\n/\\n/ \\n.∧＿∧\n( ･ω･｡)つ━☆・*。\n⊂　 ノ 　　　・゜+.\nしーＪ　　　°。+ *´¨)\n　　　　　　　　　.· ´¸.·*´¨) ¸.·*¨)\n　　　　　　　　　　(¸.·´ (¸.·'* ☆ "
+    console.log('woot');
+    this.setState({
+      memeMessage: message
+    });
   }
 
   async loadAPI() {
@@ -56,13 +63,12 @@ class Info extends Component {
       fact: jsonFOD.text,
       quote: jsonQOD.contents.quotes[0].quote,
       author: jsonQOD.contents.quotes[0].author,
-    })
+    });
   }
 
   async componentDidMount() {
     this.loadAPI();
     this.setTime();
-    this.setTimeOfDay();
   }
 
   render() {
@@ -71,14 +77,18 @@ class Info extends Component {
           <p>
             good {this.state.timeOfDay}! here's your daily tea:
             <br /><br />
-            {this.state.fact}
-            <br /><br /><br />
+            Did you know: {this.state.fact}
+            <br /><br />
             <div id="time" className="clock"></div>
             <br /><br />
-            "{this.state.quote}"
-            <br />
-            - {this.state.author}
+            <div className="quote">
+              "{this.state.quote}"
+              <br />
+              - {this.state.author}
+            </div>
           </p>
+          <button type="button" value="woot" className="button" onClick="alert(this.value)">¿?</button>
+          {this.state.message}
       </body>
     );
   }
