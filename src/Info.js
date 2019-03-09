@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Info.css';
+import Clock from 'react-live-clock';
 
 class Info extends Component {
   constructor() {
@@ -14,23 +15,9 @@ class Info extends Component {
     };
   }
 
-  setTime() {
+  setTimeOfDay() {
     const today = new Date();
-    const hour = this.addZero(today.getHours());
-    const minute = this.addZero(today.getMinutes());
-    document.getElementById("time").innerHTML= hour + " : " + minute;
-    this.setTimeOfDay(hour);
-    // setInterval(setTime, 1000);
-  }
-
-  addZero(num) {
-    if (num < 10) {
-      num = "0" + num;
-    }
-    return num;
-  }
-
-  setTimeOfDay(h) {
+    let h = today.getHours();
     let tOD;
     if (h > 6 && h < 12) {
       tOD = "morning";
@@ -52,6 +39,7 @@ class Info extends Component {
     this.setState({
       memeMessage: message
     });
+    alert(message);
   }
 
   async loadAPI() {
@@ -68,26 +56,30 @@ class Info extends Component {
 
   async componentDidMount() {
     this.loadAPI();
-    this.setTime();
+    this.setTimeOfDay();
   }
 
   render() {
     return (
       <body className="App">
           <p>
-            good {this.state.timeOfDay}! here's your daily tea:
+            <div className="title">
+              good {this.state.timeOfDay}! here's your daily tea:
+            </div>
             <br /><br />
-            Did you know: {this.state.fact}
-            <br /><br />
-            <div id="time" className="clock"></div>
-            <br /><br />
+            Did You Know?
+            <br/>
+            {this.state.fact}
+            <br /><br /><br />
+            <Clock format={'HH:mm'} ticking={true} timezone={'US/Pacific'} className="clock"/>
+            <br /><br /><br />
             <div className="quote">
               "{this.state.quote}"
               <br />
               - {this.state.author}
             </div>
           </p>
-          <button type="button" value="woot" className="button" onClick="alert(this.value)">¿?</button>
+          <button type="button" value="woot" className="button" onClick="showMeme()">¿?</button>
           {this.state.message}
       </body>
     );

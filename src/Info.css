@@ -2,12 +2,26 @@
   text-align: center;
   font-family: "Reenie Beanie";
   margin: auto;
+  margin-left: 10%;
+  margin-right: 10%;
   font-size: 25px;
+}
+
+.title {
+  font-size: 50px;
 }
 
 .clock {
   font-family: 'Londrina Solid', cursive;
   font-size: 200px;
+  border: 5px 5px solid grey;
+  border-radius: 25px;
+  background-color: #B7CCBC;
+  width: 50vw;
+  margin: auto;
+  padding: 0px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .quote {
