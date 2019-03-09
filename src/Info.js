@@ -34,8 +34,7 @@ class Info extends Component {
   }
 
   showMeme = () => {
-    const message = "\n/\\n/ \\n.∧＿∧\n( ･ω･｡)つ━☆・*。\n⊂　 ノ 　　　・゜+.\nしーＪ　　　°。+ *´¨)\n　　　　　　　　　.· ´¸.·*´¨) ¸.·*¨)\n　　　　　　　　　　(¸.·´ (¸.·'* ☆ "
-    console.log('woot');
+    const message = " ∧＿∧\n( ･ω･｡)つ━☆・*。\n⊂　 ノ 　　　・゜+.\nしーＪ　　　°。+ *´¨)\n　　　　　　　　　.· ´¸.·*´¨) ¸.·*¨)\n　　　　　　　　　　(¸.·´ (¸.·'* ☆ \n\ncongrats! you found the hidden magic cat. you have been blessed with good luck for the rest of the day. go chance your dreams and shoot your shots!\n\n*disclaimer* finding the magic cat does not guarantee good luck for the rest of the day."
     this.setState({
       memeMessage: message
     });
@@ -79,7 +78,7 @@ class Info extends Component {
               - {this.state.author}
             </div>
           </p>
-          <button type="button" value="woot" className="button" onClick="showMeme()">¿?</button>
+          <button type="button" className="button" onClick={this.showMeme}>¿?</button>
           {this.state.message}
       </body>
     );
