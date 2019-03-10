@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/morning-tea/precache-manifest.a62f357e1853df48908a7396b472acdb.js"
+  "/morning-tea/precache-manifest.d4f670addced28e0e1d5eecac58faa9f.js"
 );
 
 workbox.clientsClaim();

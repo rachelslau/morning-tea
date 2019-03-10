@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/morning-tea/static/js/runtime~main.04cfcb1e.js"
   },
   {
-    "revision": "ede94ca46750dab821d0",
-    "url": "/morning-tea/static/js/main.ede94ca4.chunk.js"
+    "revision": "dc3ce75af5a0f330f3ef",
+    "url": "/morning-tea/static/js/main.dc3ce75a.chunk.js"
   },
   {
     "revision": "962c62d0053d7663d155",
     "url": "/morning-tea/static/js/2.962c62d0.chunk.js"
   },
   {
-    "revision": "ede94ca46750dab821d0",
+    "revision": "dc3ce75af5a0f330f3ef",
     "url": "/morning-tea/static/css/main.9a6819f4.chunk.css"
   },
   {
-    "revision": "1658f71c4469ee3da0237463442a0c3e",
+    "revision": "ce560aa9e4665683796b31d2075cb945",
     "url": "/morning-tea/index.html"
   }
 ];
