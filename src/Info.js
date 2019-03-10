@@ -44,7 +44,7 @@ class Info extends Component {
   async loadAPI() {
     const factOfDay = await fetch("https://cors-anywhere.herokuapp.com/http://randomuselessfact.appspot.com/today.json?language=en");
     const jsonFOD = await factOfDay.json();
-    const quoteOfDay = await fetch("http://quotes.rest/qod.json");
+    const quoteOfDay = await fetch("https://quotes.rest/qod.json");
     const jsonQOD = await quoteOfDay.json();
     this.setState({
       fact: jsonFOD.text,
